@@ -115,7 +115,7 @@ def search_mark():
                 if len(indexes) == before_search_student:
                     print("This student doesn't exist or doesn't have any mark yet")
 
-
+#creating an user interface (i think?)
 def main_menu(current_choice):
     current_choice = int(input('''Please select what to do next:
 1: Input mark
