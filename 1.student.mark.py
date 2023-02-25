@@ -85,13 +85,13 @@ def show_student_mark():
         print("There are no marks in the database yet! Please enter mark first!")
 
 def main_menu(current_choice):
-    print('''Please select what to do next:
+    current_choice = int(input('''Please select what to do next:
 1: Input mark
 2: Show students
 3: Show courses
-4: Show student
-0: exit''')
-    current_choice = int(input("Enter your choice: "))
+4: Show mark
+0: exit
+Enter your choice: '''))
     return current_choice
 
 if __name__ == "__main__":
