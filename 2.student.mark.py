@@ -4,9 +4,9 @@ all_mark = []
 
 class Student():
     def __init__(self):
-        self.__name = input("Enter name: ")
-        self.__id  = input("Enter id: ")
-        self.__DoB  = input("Enter DoB: ")
+        self.__name = input("-Enter name: ")
+        self.__id  = input("-Enter id: ")
+        self.__DoB  = input("-Enter DoB: ")
 
     def get_name(self):
         return self.__name
@@ -19,8 +19,8 @@ class Student():
     
 class Course():
     def __init__(self):
-        self.__name = input("Enter name: ")
-        self.__id = input("Enter id: ")
+        self.__name = input("-Enter name: ")
+        self.__id = input("-Enter id: ")
 
     def get_name(self):
         return self.__name
@@ -35,10 +35,10 @@ class Mark():
         while course_id_state:
             self.__course_id = input("Enter course id: ")
             for i in range(len(all_course)):
-                if all_course[i].id == self.__course_id:
+                if all_course[i].get_id() == self.__course_id:
                     course_id_state = False
                     break
-                if course_id_state == True:
+            if course_id_state == True:
                     print("This course doesn't exist")
 
         #Same as above but for student
@@ -46,7 +46,7 @@ class Mark():
         while student_id_state:
             self.__student_id = input("Enter student id: ")
             for i in range(len(all_student)):
-                if all_student[i].id == self.__student_id:
+                if all_student[i].get_id() == self.__student_id:
                     student_id_state = False
                     break
                 if student_id_state == True:
@@ -63,22 +63,16 @@ class Mark():
     def get_mark(self):
         return self.__mark
 
-def check_exist(checker, list, text, state):
-    for i in range(len(list)):
-        if list[i].id == checker:
-            state = False
-            break
-        if state == True:
-            print(f"This {text} doesn't exist")
-
 def input_students():
     num_of_student = int(input("Enter number of student: "))
     for i in range(num_of_student):
+        print(f"Student #{i+1}")
         all_student.append(Student())
 
 def input_courses():
     num_of_course = int(input("Enter number of course: "))
     for i in range(num_of_course):
+        print(f"Course #{i+1}")
         all_course.append(Course())
 
 def input_mark():
@@ -117,11 +111,12 @@ def search_mark():
 
 #creating an user interface (i think?)
 def main_menu(current_choice):
-    current_choice = int(input('''Please select what to do next:
+    current_choice = int(input('''
+Please select what to do next:
 1: Input mark
 2: Show students
 3: Show courses
-4: Show student
+4: Show mark of a student
 0: exit
 Enter your choice: '''))
     return current_choice
