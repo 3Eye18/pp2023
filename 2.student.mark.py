@@ -39,7 +39,7 @@ class Mark():
                     course_id_state = False
                     break
             if course_id_state == True:
-                    print("This course doesn't exist")
+                print("This course doesn't exist")
 
         #Same as above but for student
         student_id_state = True
