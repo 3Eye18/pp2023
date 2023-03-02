@@ -6,36 +6,36 @@ all_marks = []
 def input_student():
     for i in range(int(input("Enter number of students: "))):
         student = []
-        student.append(input("Enter student id: "))
-        student.append(input("Enter student name: "))
-        student.append(input("Enter student dob: "))
-        print(f"Entered student: {student[0]} {student[1]} {student[2]}")
+        student.append(input("-Enter student id: "))
+        student.append(input("-Enter student name: "))
+        student.append(input("-Enter student dob: "))
+        print(f"-Entered student: {student[0]} {student[1]} {student[2]}")
         all_students.append(student)
 
 #Input courses
 def input_course():
     for i in range(int(input("Enter number of courses: "))):
         course = []
-        course.append(input("Enter course id: "))
-        course.append(input("Enter course name: "))
+        course.append(input("-Enter course id: "))
+        course.append(input("-Enter course name: "))
         all_courses.append(course)
 
 #Select a course, input marks for student in this course
 def input_mark():
-    search_course = input("Enter course id: ")
+    search_course = input("-Enter course id: ")
     found_course = False
     found_student = False
     for course in all_courses:
         if course[0] == search_course:
             found_course = True
             mark = []
-            search_student = input("Enter student id:")
+            search_student = input("-Enter student id:")
             for student in all_students:
                 if student[0] == search_student:
                     found_student = True
                     mark.append(search_course)
                     mark.append(search_student)
-                    mark.append(float(input("Enter mark: ")))
+                    mark.append(float(input("-Enter mark: ")))
                     all_marks.append(mark)
                     break
             if found_student == False:
@@ -57,14 +57,14 @@ def show_courses():
 #Show student mark for a given course
 def show_student_mark():
     if len(all_marks) != 0:
-        search_course = input("Enter course id: ")
+        search_course = input("-Enter course id: ")
         found_course = False
         found_student = False
         found_mark = False
         for course in all_courses:
             if course[0] == search_course:
                 found_course = True
-                search_student = input("Enter student id:")
+                search_student = input("-Enter student id:")
                 for student in all_students:
                     if student[0] == search_student:
                         found_student = True
@@ -85,7 +85,8 @@ def show_student_mark():
         print("There are no marks in the database yet! Please enter mark first!")
 
 def main_menu(current_choice):
-    current_choice = int(input('''Please select what to do next:
+    current_choice = int(input('''
+Please select what to do next:
 1: Input mark
 2: Show students
 3: Show courses
