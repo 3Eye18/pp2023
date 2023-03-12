@@ -91,23 +91,23 @@ def search_mark():
         print("There are no marks yet!")
     else:
         #check for the course and save the index of all the result
-        search_course = input("Enter course id")
+        search_course = input("Enter course id: ")
         indexes = []
-        for i in range(len(all_course)):
+        for i in range(len(all_mark)):
             if all_mark[i].get_course_id() == search_course:
                 indexes.append(i)
         if len(indexes) == 0:
             print("This course doesn't exist or don't have any marks yet")
         else:
             #check for the student and remove the result that satisfies
-            before_search_student = len(indexes)
+            not_found = True
             search_student = input("Enter student id: ")
             for i in indexes:
                 if all_mark[i].get_student_id() == search_student:
                     print(f"This student mark: {all_mark[i].get_mark()}")
-                    indexes.remove(i)
-                if len(indexes) == before_search_student:
-                    print("This student doesn't exist or doesn't have any mark yet")
+                    not_found = False
+            if not_found:
+                print("This student doesn't exist or doesn't have any mark yet")
 
 #creating an user interface (i think?)
 def main_menu(current_choice):
@@ -147,4 +147,3 @@ if __name__ == "__main__":
                 current_choice = main_menu(current_choice)
     if current_choice == 0:
         print("Exited program")
-
