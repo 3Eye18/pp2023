@@ -1,5 +1,5 @@
 import curses, time, input, output
-from curses import rectangle
+from curses.textpad import rectangle
 
 all_student = []
 all_course = []
@@ -57,3 +57,5 @@ def main(stdscr):
                 current_choice = input.main_menu(current_choice, top_left_window)
     if current_choice == 0:
         print("Exited program")
+
+curses.wrapper(main)
