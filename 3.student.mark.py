@@ -311,11 +311,13 @@ def search_mark(top_right_window, bot_window):
 def main_menu(current_choice, top_left_window):
     top_left_window.clear()
     top_left_window.addstr('''Please select what to do next:
-1: Input mark
-2: Show students
-3: Show courses
-4: Show mark of a student
-5: Calculate GPA and sort
+1: Add a mark for a student in a course
+2: Add a student
+3: Add a course
+4: Show all students
+5: Show all courses
+6: Show all marks of a student in a course
+7: Calculate GPA and sort student descendingly by GPA
 0: exit
 Enter your choice: ''')
     top_left_window.refresh()
@@ -352,16 +354,22 @@ def main(stdscr):
             case 1:
                 add_mark(top_right_window, bot_window)
                 current_choice = main_menu(current_choice, top_left_window)
-            case 2: 
-                list_students(top_right_window)
+            case 2:
+                add_student(top_right_window, bot_window)
                 current_choice = main_menu(current_choice, top_left_window)
             case 3:
-                list_courses(top_right_window)
+                add_course(top_right_window, bot_window)
                 current_choice = main_menu(current_choice, top_left_window)
-            case 4:
-                search_mark(top_right_window, bot_window)
+            case 4: 
+                list_students(top_right_window)
                 current_choice = main_menu(current_choice, top_left_window)
             case 5:
+                list_courses(top_right_window)
+                current_choice = main_menu(current_choice, top_left_window)
+            case 6:
+                search_mark(top_right_window, bot_window)
+                current_choice = main_menu(current_choice, top_left_window)
+            case 7:
                 sort_GPA(top_right_window)
                 current_choice = main_menu(current_choice, top_left_window)
             case _:
