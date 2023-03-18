@@ -25,7 +25,7 @@ def main(stdscr):
     top_left_window.refresh()
     time.sleep(1.5)
     current_choice = 0
-    current_choice = input.input.main_menu(current_choice, top_left_window)
+    current_choice = input.main_menu(current_choice, top_left_window)
 
     while current_choice!= 0:
         match current_choice:

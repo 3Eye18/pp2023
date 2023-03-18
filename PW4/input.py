@@ -33,7 +33,10 @@ def initialize_courses(top_left_window, top_right_window, bot_window, all_course
 def add_course(top_right_window, bot_window, all_course):
     top_right_window.clear()
     top_right_window.refresh()
-    all_course.append(Course(top_right_window, bot_window))
+    new_course = Course("", "")
+    new_course.input_name(top_right_window, bot_window, all_course)
+    new_course.input_id(top_right_window, bot_window, all_course)
+    all_course.append(new_course)
 
 #Enter student info for the 1st time
 def initialize_students(top_left_window, top_right_window, bot_window, all_student):
@@ -67,11 +70,19 @@ def initialize_students(top_left_window, top_right_window, bot_window, all_stude
 def add_student(top_right_window, bot_window, all_student):
     top_right_window.clear()
     top_right_window.refresh()
-    all_student.append(Student(top_right_window, bot_window))
+    new_student = Student("", "", "", 0.0)
+    new_student.input_name(top_right_window, bot_window, all_student)
+    new_student.input_id(top_right_window, bot_window, all_student)
+    new_student.input_dob(top_right_window, bot_window)
+    all_student.append(new_student)
 
 #Enter mark for a specific student in a specific course
-def add_mark(top_right_window, bot_window, all_mark):
-    all_mark.append(Mark(top_right_window, bot_window))
+def add_mark(top_right_window, bot_window, all_mark, all_course, all_student):
+    new_mark = Mark("", "", 0.0)
+    new_mark.input_course_id(top_right_window, bot_window, all_course)
+    new_mark.input_student_id(top_right_window, bot_window, all_student)
+    new_mark.input_mark(top_right_window, bot_window)
+    all_mark.append(new_mark)
 
 #Creating an user interface
 def main_menu(current_choice, top_left_window):
